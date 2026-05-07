@@ -3,3 +3,12 @@ BASIC_COMMANDS.md
 phase1-api-starter.md
 /pak_wheels/users/__pycache__
 /pak_wheels/users/migrations/__pycache__
+/media/listings
+/pak_wheels/__pycache__
+PHASE1_REVIEW_GUIDE.md
+PHASE1_REVIEW_GUIDE.md
+*.pyc
+*.pyc
+/pak_wheels/__pycache__
+pak_wheels/__pycache__/urls.cpython-314.pyc
+deep_dive_api_dry_run.md
