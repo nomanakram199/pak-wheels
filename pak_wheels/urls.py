@@ -16,8 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('pak_wheels.users.urls')),
+    path('api/auth/', include('pak_wheels.users.urls')),
+    path('api/listings/', include('pak_wheels.listings.urls')),
+    path('api/cars/', include('pak_wheels.cars.urls')),
 ]
+
+
+# Serve uploaded images during development
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
