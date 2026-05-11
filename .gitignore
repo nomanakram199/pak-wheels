@@ -1,3 +1,5 @@
 BASIC_COMMANDS.md
 /DJANGO_GUIDE
 phase1-api-starter.md
+/pak_wheels/users/__pycache__
+/pak_wheels/users/migrations/__pycache__
