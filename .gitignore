@@ -12,3 +12,4 @@ PHASE1_REVIEW_GUIDE.md
 /pak_wheels/__pycache__
 pak_wheels/__pycache__/urls.cpython-314.pyc
 deep_dive_api_dry_run.md
+*.pyc

@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('pak_wheels.users.urls')),
     path('api/listings/', include('pak_wheels.listings.urls')),
+    path('api/cars/', include('pak_wheels.cars.urls')),
 ]
 
 

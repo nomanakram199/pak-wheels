@@ -50,6 +50,7 @@ THIRD_PARTY_APPS=[
 CUSTOM_APPS = [
     'pak_wheels.users',
     'pak_wheels.listings',
+    'pak_wheels.cars',
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
@@ -63,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'pak_wheels.middleware.APIPerformanceMiddleware',
 ]
 
 AUTH_USER_MODEL = 'users.User'

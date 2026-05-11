@@ -1,17 +1,39 @@
 from django.db import models
 from django.conf import settings
+from django.core.validators import MaxValueValidator, MinValueValidator
+from django.utils import timezone
+from decimal import Decimal
 
 # Create your models here.
+def max_listing_year():
+    return timezone.now().year + 1
+
 class CarListing(models.Model):
     seller = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='listings')
     title = models.CharField(max_length=255)
-    brand = models.CharField(max_length=100)
-    model = models.CharField(max_length=100)
-    year = models.PositiveIntegerField()
-    price = models.DecimalField(max_digits=12, decimal_places=2)
-    city = models.CharField(max_length=100)
+    brand = models.ForeignKey(
+        'cars.CarBrand',
+        on_delete=models.PROTECT,
+        related_name='listings',
+    )
+    model = models.ForeignKey(
+        'cars.CarModel',
+        on_delete=models.PROTECT,
+        related_name='listings',
+    )
+    year = models.PositiveIntegerField(
+        validators=[
+            MinValueValidator(1886),
+            MaxValueValidator(max_listing_year),
+        ]
+    )
+    price = models.DecimalField(
+        max_digits=12,
+        decimal_places=2,
+        validators=[MinValueValidator(Decimal('0'))],
+    )
+    city = models.CharField(max_length=100, db_index=True)
     description = models.TextField(blank=True)
-
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
